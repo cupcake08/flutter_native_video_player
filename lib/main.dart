@@ -30,11 +30,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static const platform = MethodChannel("ankit.flutter.dev/video");
 
+  _showSnackBar(String e) {
+    final snackbar = SnackBar(
+      content: Text(e),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackbar);
+  }
+
   _playVideo() async {
     try {
       await platform.invokeMethod("playVideo");
     } on PlatformException catch (e) {
-      print(e);
+      debugPrint(e.message);
+      _showSnackBar("Platform Exception.");
     }
   }
 

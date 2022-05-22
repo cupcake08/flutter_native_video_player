@@ -8,6 +8,7 @@
         android:icon="@mipmap/ic_launcher">
        <activity
            android:name=".VideoActivity"
+           android:configChanges="orientation|screenSize|layoutDirection"
            android:theme="@style/myCustomTheme"
            />
         <activity
